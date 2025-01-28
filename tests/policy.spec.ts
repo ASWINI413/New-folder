@@ -15,6 +15,7 @@ const createResponse = await request.post(
           type: 'policies',
           attributes: {
             name: 'Basic Policy',
+            maxMachines: 1,
           },
           relationships: {
             product: {
