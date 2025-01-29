@@ -32,12 +32,7 @@ payload:
  payload : 
   fingerprint
   platform
-  name
-
-
-
-
-
+  name.
 
 
 ## Pre-requisities:
