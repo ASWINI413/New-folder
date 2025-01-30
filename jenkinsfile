@@ -1,0 +1,73 @@
+pipeline {
+    agent any
+    
+    environment {
+        // Set the NodeJS version (use Jenkins's NodeJS installation)
+        NODE_HOME = tool name: 'NodeJS', type: 'NodeJSInstallation'
+        PATH = "${NODE_HOME}/bin:${env.PATH}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from Git repository
+                git url: 'https://github.com/ASWINI413/New-folder', branch: 'main'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Install Node.js dependencies
+                script {
+                    sh 'npm install'
+                }
+            }
+        }
+
+        stage('Build TypeScript') {
+            steps {
+                // Compile TypeScript code
+                script {
+                    sh 'npx tsc'
+                }
+            }
+        }
+
+        stage('Run Playwright Tests') {
+            steps {
+                // Run Playwright tests
+                script {
+                    sh 'npx playwright test'
+                }
+            }
+        }
+
+        stage('Post-Processing') {
+            steps {
+                // Post-build actions (e.g., reporting, notifications, etc.)
+                echo 'Post-processing steps (e.g., reporting, notifications).'
+            }
+        }
+        
+        // Optional deployment stage (e.g., deploy to a server or cloud)
+        stage('Deploy') {
+            steps {
+                script {
+                    // Deploy your application (this part depends on your platform and setup)
+                    echo 'Deploying application...'
+                    // Example deployment step (you may replace with actual deployment commands)
+                    // sh 'scp -r ./dist/* user@server:/path/to/deploy'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline succeeded!'
+        }
+        failure {
+            echo 'Pipeline failed.'
+        }
+    }
+}
