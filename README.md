@@ -53,6 +53,14 @@ payload:
  3. `npm run tests` to run code.
  4. `npm run report:generate` generates multipage Html Report
 
+## CICD Integration
+1. Jenkins : http://localhost:8080/
+ Downnload and install the jenkins from https://www.jenkins.io/download/
+2. install node plugins from mangage plugins in Jenkins
+3. install git plugins from mangage plugins in Jenkins
+4. add new Test 
+5. click on build now option
+
  ## reference links 
  https://keygen.sh/
 
