@@ -58,7 +58,7 @@ payload:
  Downnload and install the jenkins from https://www.jenkins.io/download/
 2. install node plugins from mangage plugins in Jenkins
 3. install git plugins from mangage plugins in Jenkins
-4. add new Test 
+4. add new Test and add required fields
 5. click on build now option
 
  ## reference links 
